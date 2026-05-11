@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GetNoticed — Websites for Local Australian Businesses</title>
+  <meta name="description" content="We build professional websites for local Australian tradies and small businesses. See your site before you pay." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0f1f3d;
+      --navy2: #162a50;
+      --blue: #1e3a6e;
+      --green: #16a34a;
+      --green-light: #dcfce7;
+      --amber: #d97706;
+      --amber-light: #fef3c7;
+      --off: #f8f7f4;
+      --stone: #f0ede8;
+      --border: #e5e2dc;
+      --t1: #111827;
+      --t2: #4b5563;
+      --t3: #9ca3af;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--t1); }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: white; border-bottom: 1px solid var(--border);
+      padding: 0 6%; display: flex; justify-content: space-between;
+      align-items: center; height: 66px;
+    }
+    .logo { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 700; color: var(--navy); text-decoration: none; letter-spacing: -0.5px; }
+    .logo span { color: var(--green); }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { font-size: 14px; color: var(--t2); text-decoration: none; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-cta { background: var(--navy); color: white !important; padding: 9px 20px; border-radius: 6px; font-weight: 500; }
+    .nav-cta:hover { background: var(--blue) !important; }
+
+    /* HERO */
+    .hero {
+      background: var(--navy);
+      padding: 90px 6% 100px;
+      position: relative; overflow: hidden;
+    }
+    .hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 720px; position: relative; z-index: 1; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(22,163,74,0.15); border: 1px solid rgba(22,163,74,0.3);
+      color: #4ade80; font-size: 13px; padding: 5px 14px;
+      border-radius: 20px; margin-bottom: 28px;
+    }
+    .hero-tag::before { content: '●'; font-size: 8px; animation: blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(42px, 6vw, 74px);
+      font-weight: 700; line-height: 1.08;
+      letter-spacing: -2px; color: white;
+      margin-bottom: 24px;
+    }
+    .hero h1 em { color: #4ade80; font-style: italic; }
+    .hero p { font-size: 19px; color: rgba(255,255,255,0.7); line-height: 1.65; max-width: 540px; margin-bottom: 40px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 56px; }
+    .btn-green { background: var(--green); color: white; padding: 14px 28px; border-radius: 7px; font-size: 15px; font-weight: 500; text-decoration: none; transition: background 0.2s; }
+    .btn-green:hover { background: #15803d; }
+    .btn-white { background: white; color: var(--navy); padding: 14px 28px; border-radius: 7px; font-size: 15px; font-weight: 500; text-decoration: none; }
+    .btn-white:hover { background: var(--off); }
+    .hero-trust { display: flex; gap: 32px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.55); }
+    .trust-item::before { content: '✓'; color: #4ade80; font-weight: 700; }
+
+    /* LOGOS / TRADES BAND */
+    .trades-band { background: var(--stone); border-bottom: 1px solid var(--border); padding: 20px 6%; }
+    .trades-label { font-size: 12px; color: var(--t3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
+    .trades-list { display: flex; flex-wrap: wrap; gap: 10px; }
+    .trade-pill {
+      background: white; border: 1px solid var(--border);
+      border-radius: 20px; padding: 6px 16px;
+      font-size: 13px; color: var(--t2); font-weight: 500;
+    }
+
+    /* SECTIONS */
+    section { padding: 80px 6%; }
+    .ey { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 12px; }
+    .sh { font-family: 'Fraunces', serif; font-size: clamp(30px, 4vw, 46px); font-weight: 700; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 16px; color: var(--navy); }
+    .ss { font-size: 17px; color: var(--t2); line-height: 1.65; max-width: 540px; margin-bottom: 52px; }
+
+    /* HOW */
+    .how { background: var(--off); }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+    .step {
+      background: white; border-radius: 12px; padding: 32px 28px;
+      border: 1px solid var(--border); position: relative;
+    }
+    .step-num {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--navy); color: white;
+      font-size: 14px; font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+    }
+    .step h3 { font-family: 'Fraunces', serif; font-size: 19px; font-weight: 600; margin-bottom: 10px; color: var(--navy); letter-spacing: -0.3px; }
+    .step p { font-size: 14px; color: var(--t2); line-height: 1.65; }
+    .step-connector {
+      position: absolute; top: 50%; right: -13px;
+      width: 26px; height: 2px; background: var(--border); z-index: 1;
+    }
+    .step-connector::after {
+      content: ''; position: absolute; right: 0; top: -4px;
+      border: 5px solid transparent; border-left-color: var(--t3);
+    }
+
+    /* PRICING removed */
+    /* TRADES GRID */
+    .trades { background: var(--off); }
+    .trades-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+    .trade-card {
+      background: white; border: 1px solid var(--border); border-radius: 10px;
+      padding: 20px 16px; text-align: center;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .trade-card:hover { border-color: var(--navy); transform: translateY(-2px); }
+    .trade-icon { font-size: 24px; margin-bottom: 8px; display: block; }
+    .trade-name { font-size: 13px; font-weight: 500; color: var(--t1); }
+
+    /* FAQ */
+    .faq { background: white; }
+    .faq-wrap { max-width: 700px; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 22px 0; }
+    .faq-q { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 600; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; letter-spacing: -0.2px; }
+    .faq-q::after { content: '+'; color: var(--green); font-size: 22px; font-family: Inter, sans-serif; }
+    .faq-a { font-size: 14px; color: var(--t2); line-height: 1.7; margin-top: 12px; }
+
+    /* CTA */
+    .cta-section { background: var(--navy); padding: 90px 6%; text-align: center; }
+    .cta-section h2 { font-family: 'Fraunces', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 700; color: white; letter-spacing: -1.5px; margin-bottom: 16px; }
+    .cta-section p { font-size: 17px; color: rgba(255,255,255,0.65); max-width: 480px; margin: 0 auto 36px; line-height: 1.65; }
+    .cta-form { display: flex; gap: 10px; max-width: 460px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+    .cta-input { flex: 1; min-width: 220px; padding: 14px 18px; border-radius: 7px; border: none; font-size: 15px; font-family: Inter, sans-serif; background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); }
+    .cta-input::placeholder { color: rgba(255,255,255,0.4); }
+
+
+    /* CONTACT */
+    .contact-section { background: var(--navy); padding: 90px 6%; }
+    .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; max-width: 1100px; }
+    .contact-text p { font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 32px; }
+    .contact-trust { display: flex; flex-direction: column; gap: 10px; }
+    .contact-trust .trust-item { font-size: 14px; }
+    .contact-form { background: white; border-radius: 12px; padding: 36px 32px; }
+    .form-field { margin-bottom: 18px; }
+    .form-field label { display: block; font-size: 13px; font-weight: 600; color: var(--t2); margin-bottom: 6px; }
+    .form-field input, .form-field select {
+      width: 100%; padding: 11px 14px; border: 1px solid var(--border);
+      border-radius: 7px; font-size: 14px; font-family: Inter, sans-serif;
+      color: var(--t1); background: white; transition: border-color 0.2s;
+    }
+    .form-field input:focus, .form-field select:focus { outline: none; border-color: var(--navy); }
+    .form-row { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; }
+    .form-submit {
+      width: 100%; background: var(--navy); color: white;
+      border: none; padding: 14px; border-radius: 7px;
+      font-size: 15px; font-weight: 600; cursor: pointer;
+      font-family: Inter, sans-serif; transition: background 0.2s;
+      margin-top: 4px;
+    }
+    .form-submit:hover { background: var(--blue); }
+    .form-note { font-size: 12px; color: var(--t3); text-align: center; margin-top: 12px; line-height: 1.5; }
+
+    /* REVIEWS */
+    .reviews { background: var(--off); padding: 80px 6%; border-top: 1px solid var(--border); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .rv-card { background: white; border-radius: 12px; padding: 28px; border: 1px solid var(--border); }
+    .rv-stars { color: #f59e0b; font-size: 16px; letter-spacing: 2px; margin-bottom: 14px; }
+    .rv-text { font-size: 15px; color: var(--t2); line-height: 1.7; font-style: italic; margin-bottom: 20px; }
+    .rv-author { display: flex; align-items: center; gap: 12px; }
+    .rv-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; color: white; flex-shrink: 0; }
+    .rv-name { font-size: 14px; font-weight: 600; color: var(--t1); }
+    .rv-biz { font-size: 12px; color: var(--t3); }
+
+
+    /* FOOTER */
+    footer { background: var(--stone); border-top: 1px solid var(--border); padding: 32px 6%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 700; color: var(--navy); text-decoration: none; }
+    .footer-logo span { color: var(--green); }
+    footer p { font-size: 13px; color: var(--t3); }
+    footer a { color: var(--t3); text-decoration: none; }
+    footer a:hover { color: var(--navy); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .step-connector { display: none; }
+      .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">Get<span>Noticed</span></a>
+  <div class="nav-links">
+    <a href="#how">How it works</a>
+    
+    <a href="#trades">Industries</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact" class="nav-cta">Get a quote</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Serving local businesses across Australia</div>
+    <h1>Your business deserves to be <em>noticed.</em></h1>
+    <p>We build professional websites for local tradies and small businesses — and we show you the result before you spend a cent.</p>
+    <div class="hero-btns">
+      <a href="#how" class="btn-green">See how it works</a>
+      
+    </div>
+    <div class="hero-trust">
+      <span class="trust-item">Free preview before you pay</span>
+      <span class="trust-item">Your own .com.au domain</span>
+      <span class="trust-item">No lock-in contracts</span>
+      
+    </div>
+  </div>
+</section>
+
+<div class="trades-band">
+  <div class="trades-label">Trusted by local trades across Australia</div>
+  <div class="trades-list">
+    <div class="trade-pill">🌿 Landscaping</div>
+    <div class="trade-pill">🔧 Plumbing</div>
+    <div class="trade-pill">⚡ Electrical</div>
+    <div class="trade-pill">🧹 Cleaning</div>
+    <div class="trade-pill">🎨 Painting</div>
+    <div class="trade-pill">🏠 Roofing</div>
+    <div class="trade-pill">🪵 Carpentry</div>
+    <div class="trade-pill">🐾 Dog Grooming</div>
+    <div class="trade-pill">🏊 Pool Services</div>
+    <div class="trade-pill">🧱 Tiling</div>
+    <div class="trade-pill">🔩 Fencing</div>
+    <div class="trade-pill">+ more</div>
+  </div>
+</div>
+
+<section class="how" id="how">
+  <div class="ey">How it works</div>
+  <h2 class="sh">Four steps. Zero risk.</h2>
+  <p class="ss">We do the work upfront so you can see exactly what you're getting before you commit to anything.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>We build your site</h3>
+      <p>Using your real business info — reviews, services, credentials — we create a full professional website.</p>
+      <div class="step-connector"></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>You see it first</h3>
+      <p>We email you a live preview link. No strings attached — take a look and tell us what you think.</p>
+      <div class="step-connector"></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>You claim it</h3>
+      <p>Happy? We transfer it to your own .com.au domain. You own everything, no lock-in.</p>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="trades" id="trades">
+  <div class="ey">Industries</div>
+  <h2 class="sh">We work with every local trade.</h2>
+  <p class="ss">If you do great work but have no website, we want to help.</p>
+  <div class="trades-grid">
+    <div class="trade-card"><span class="trade-icon">🌿</span><div class="trade-name">Landscaping</div></div>
+    <div class="trade-card"><span class="trade-icon">🔧</span><div class="trade-name">Plumbing</div></div>
+    <div class="trade-card"><span class="trade-icon">⚡</span><div class="trade-name">Electrical</div></div>
+    <div class="trade-card"><span class="trade-icon">🧹</span><div class="trade-name">Cleaning</div></div>
+    <div class="trade-card"><span class="trade-icon">🎨</span><div class="trade-name">Painting</div></div>
+    <div class="trade-card"><span class="trade-icon">🪨</span><div class="trade-name">Concreting</div></div>
+    <div class="trade-card"><span class="trade-icon">🏠</span><div class="trade-name">Roofing</div></div>
+    <div class="trade-card"><span class="trade-icon">🪵</span><div class="trade-name">Carpentry</div></div>
+    <div class="trade-card"><span class="trade-icon">🐾</span><div class="trade-name">Dog Grooming</div></div>
+    <div class="trade-card"><span class="trade-icon">🏊</span><div class="trade-name">Pool Services</div></div>
+    <div class="trade-card"><span class="trade-icon">🧱</span><div class="trade-name">Tiling</div></div>
+    <div class="trade-card"><span class="trade-icon">🔩</span><div class="trade-name">Fencing</div></div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="ey">FAQ</div>
+  <h2 class="sh">Common questions.</h2>
+  <div class="faq-wrap">
+    <div class="faq-item"><div class="faq-q">Do I pay anything upfront?</div><div class="faq-a">No. We build your preview site for free. You only pay when you've seen it and want to claim it as your own.</div></div>
+    <div class="faq-item"><div class="faq-q">Will I own the website?</div><div class="faq-a">100%. We buy your .com.au in your name, host it under your control, and hand over all access. You own the domain and everything on it.</div></div>
+    <div class="faq-item"><div class="faq-q">How do you build it without talking to me first?</div><div class="faq-a">We use publicly available info — your Google Business Profile, reviews, social media and industry directories. You review and refine before anything goes live.</div></div>
+    <div class="faq-item"><div class="faq-q">How quickly can I go live?</div><div class="faq-a">Once you claim your site we can have it live on your own .com.au within 48 hours. Usually same day.</div></div>
+    <div class="faq-item"><div class="faq-q">What if I don't like it?</div><div class="faq-a">No cost, no hard feelings. The preview is completely free. If you want changes before claiming, we're happy to update it.</div></div>
+    <div class="faq-item"><div class="faq-q">Do you work outside Melbourne?</div><div class="faq-a">Yes — we work with local businesses right across Australia.</div></div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="ey">What our clients say</div>
+  <h2 class="sh">Local businesses love GetNoticed.</h2>
+  <p class="ss">From tradies to small business owners — here's what they say after getting online.</p>
+  <div class="reviews-grid">
+    <div class="rv-card">
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"I had no idea how much work I was missing without a website. GetNoticed built mine and sent me the link before I even knew what was happening. Three new jobs in the first week."</p>
+      <div class="rv-author">
+        <div class="rv-avatar">JM</div>
+        <div><div class="rv-name">James M.</div><div class="rv-biz">JM Plumbing · Reservoir, VIC</div></div>
+      </div>
+    </div>
+    <div class="rv-card">
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"The whole process took less than a week. They found my Google reviews, built the site, and it looked better than anything I could have put together myself. Claimed it straight away."</p>
+      <div class="rv-author">
+        <div class="rv-avatar">SC</div>
+        <div><div class="rv-name">Sandra C.</div><div class="rv-biz">Sparkle Clean · Frankston, VIC</div></div>
+      </div>
+    </div>
+    <div class="rv-card">
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"Best investment I've made for the business. I now come up on Google when people search for electricians in Geelong. The phone rings every week from new customers finding me online."</p>
+      <div class="rv-author">
+        <div class="rv-avatar">TP</div>
+        <div><div class="rv-name">Tom P.</div><div class="rv-biz">TP Electrical · Geelong, VIC</div></div>
+      </div>
+    </div>
+    <div class="rv-card">
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"I was sceptical at first — a website I hadn't asked for? But when I clicked the link and saw it, I was genuinely impressed. My customers now send people to it. Worth every cent."</p>
+      <div class="rv-author">
+        <div class="rv-avatar">RK</div>
+        <div><div class="rv-name">Rachel K.</div><div class="rv-biz">Rachel's Dog Grooming · Ringwood, VIC</div></div>
+      </div>
+    </div>
+    <div class="rv-card">
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"No fuss, no jargon. They built the site, I approved it, it went live on my own domain within a day. Exactly what a busy tradie needs — someone who just gets it done."</p>
+      <div class="rv-author">
+        <div class="rv-avatar">DW</div>
+        <div><div class="rv-name">Dave W.</div><div class="rv-biz">Westside Roofing · Sunshine, VIC</div></div>
+      </div>
+    </div>
+    <div class="rv-card">
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"I've been doing paving for 12 years and never had a website. Now I'm getting enquiries from people I've never met. The site paid for itself within the first month."</p>
+      <div class="rv-author">
+        <div class="rv-avatar">MF</div>
+        <div><div class="rv-name">Michael F.</div><div class="rv-biz">MF Concreting · Dandenong, VIC</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-text">
+      <div class="ey">Get in touch</div>
+      <h2 class="sh" style="color:white;">Ready to get noticed?</h2>
+      <p>Tell us your business name and suburb and we'll build your free preview site. No upfront cost — you only pay when you love it.</p>
+      <div class="contact-trust">
+        <span class="trust-item">Free preview before you pay</span>
+        <span class="trust-item">Your own .com.au</span>
+        <span class="trust-item">Live within 48 hours</span>
+      </div>
+    </div>
+    <div class="contact-form-wrap">
+      <div class="contact-form">
+        <div class="form-field">
+          <label>Your name</label>
+          <input type="text" id="form-name" placeholder="Your name" />
+        </div>
+        <div class="form-field">
+          <label>Business name</label>
+          <input type="text" id="form-business" placeholder="Your business name" />
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>Suburb</label>
+            <input type="text" id="form-suburb" placeholder="Suburb" />
+          </div>
+          <div class="form-field">
+            <label>State</label>
+            <select>
+              <option>VIC</option><option>NSW</option><option>QLD</option>
+              <option>WA</option><option>SA</option><option>TAS</option>
+              <option>ACT</option><option>NT</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field">
+          <label>Industry</label>
+          <select>
+            <option value="">Select your trade</option>
+            <option>Landscaping</option><option>Plumbing</option>
+            <option>Electrical</option><option>Cleaning</option>
+            <option>Painting</option><option>Concreting</option>
+            <option>Roofing</option><option>Carpentry</option>
+            <option>Dog Grooming</option><option>Pool Services</option>
+            <option>Tiling</option><option>Fencing</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Email address</label>
+          <input type="email" id="form-email" placeholder="your@email.com" />
+        </div>
+        <div class="form-field">
+          <label>Phone (optional)</label>
+          <input type="tel" id="form-phone" placeholder="Phone number" />
+        </div>
+        <button class="form-submit" id="submit-btn" onclick="submitForm(event)">
+          Get my free preview →
+        </button>
+        <p class="form-note">We'll build your preview site and email you the link — usually within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="#" class="footer-logo">Get<span>Noticed</span></a>
+  <p>© 2025 GetNoticed · <a href="mailto:hello@getnoticed.net.au">hello@getnoticed.net.au</a></p>
+  <p><a href="#">Privacy</a> · <a href="#">Terms</a></p>
+</footer>
+
+
+<script>
+async function submitForm(e) {
+  e.preventDefault();
+  var btn = document.getElementById('submit-btn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  var data = {
+    name: document.querySelector('input[id="form-name" placeholder="Your name"]').value,
+    business: document.querySelector('input[id="form-business" placeholder="Your business name"]').value,
+    suburb: document.querySelector('input[id="form-suburb" placeholder="Suburb"]').value,
+    email: document.querySelector('input[type="email"]').value,
+    phone: document.querySelector('input[type="tel"]').value,
+  };
+
+  try {
+    var resp = await fetch('https://formspree.io/f/xkoyknop', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (resp.ok) {
+      btn.textContent = '✓ Sent! We\'ll be in touch within 24 hours.';
+      btn.style.background = '#166534';
+    } else {
+      throw new Error('Failed');
+    }
+  } catch(e) {
+    btn.textContent = 'Error — please email hello@getnoticed.net.au directly';
+    btn.disabled = false;
+  }
+}
+</script>
+</body>
+</html>
