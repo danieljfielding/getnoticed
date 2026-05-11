@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Butterworth Landscapes | Professional Landscaping Services in Windsor VIC</title>
+    <meta name="description" content="Award-winning landscaping services in Windsor VIC. Expert landscape design and pool landscaping by Matt Butterworth. 4.9★ rated with 36 Google reviews.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Butterworth Landscapes",
+        "description": "Professional landscaping services specializing in landscape design and pool landscaping",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "390 High St",
+            "addressLocality": "Windsor",
+            "addressRegion": "VIC",
+            "postalCode": "3181",
+            "addressCountry": "AU"
+        },
+        "telephone": "+61437240080",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "36"
+        },
+        "founder": {
+            "@type": "Person",
+            "name": "Matt Butterworth"
+        },
+        "award": "2021 Rising Star"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #0f1f3d;
+            background-color: #f5f0e8;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            position: relative;
+            background-color: #f5f0e8;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(15, 31, 61, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a5c2a;
+        }
+        
+        .quote-btn {
+            background-color: #1a5c2a;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        
+        .quote-btn:hover {
+            background-color: #2d7a3a;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            background-image: linear-gradient(rgba(15, 31, 61, 0.6), rgba(26, 92, 42, 0.4)), url('https://images.unsplash.com/photo-1750762286044-d799678baf6d?w=1600&q=80&fit=crop&auto=format');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background-color: #1a5c2a;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2d7a3a;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            padding: 15px 30px;
+            border: 2px solid white;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: #1a5c2a;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            color: #1a5c2a;
+            margin-bottom: 50px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            background-color: #f5f0e8;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(15, 31, 61, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #1a5c2a;
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            color: #0f1f3d;
+            line-height: 1.6;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: #f5f0e8;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background-color: #2d7a3a;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+        
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #1a5c2a;
+            margin-bottom: 20px;
+        }
+        
+        .about-text h3 {
+            font-size: 1.3rem;
+            color: #0f1f3d;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .credentials {
+            margin: 20px 0;
+        }
+        
+        .credential-item {
+            background-color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #1a5c2a;
+        }
+        
+        .credential-item strong {
+            color: #1a5c2a;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body><div id="gn-banner" style="position:fixed;top:0;left:0;right:0;background:#1a5c2a;color:white;text-align:center;padding:11px 20px;font-family:sans-serif;font-size:14px;z-index:99999;box-shadow:0 2px 8px rgba(0,0,0,0.3);">🔍 Free preview for <strong>Butterworth Landscapes</strong> — <a href="mailto:hello@getnoticed.net.au?subject=I%20want%20to%20claim%20the%20Butterworth%20Landscapes%20website" style="color:#a8e6b8;font-weight:bold;text-decoration:underline;">Email hello@getnoticed.net.au to claim it →</a></div><div style="height:44px;"></div>
+    <!-- Navigation -->
+    <div style="background:#163d1a;padding:10px 6%;display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;"><a href="tel:0437240080" style="display:flex;align-items:center;gap:8px;color:white;text-decoration:none;font-size:14px;font-weight:500;">📞 0437240080</a><a href="mailto:matt@butterworthlandscapes.com" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;">✉️ matt@butterworthlandscapes.com</a><span style="color:rgba(255,255,255,0.7);font-size:13px;">📍 390 High St, Windsor VIC 3181, Australia</span><span style="color:rgba(255,255,255,0.6);font-size:13px;">🕐 Mon–Fri 7am–5pm · Sat 8am–12pm</span></div><nav 
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">Butterworth Landscapes</div>
+                <a href="#" class="quote-btn">Get a Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transform Your Outdoor Space</h1>
+                <p>Professional Landscaping Services in Windsor & Beyond</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-primary">Start Your Project</a>
+                    <a href="#" class="btn-secondary">View Our Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-icon">🌿</span>
+                    <h3>Landscape Design</h3>
+                    <p>Custom landscape designs tailored to your space, lifestyle, and budget. From concept to completion.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🏊</span>
+                    <h3>Pool Landscaping</h3>
+                    <p>Specialized pool area landscaping that creates stunning outdoor entertainment spaces.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🌳</span>
+                    <h3>Garden Installation</h3>
+                    <p>Professional planting and garden bed installation with premium plants and materials.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🧱</span>
+                    <h3>Hardscaping</h3>
+                    <p>Patios, walkways, retaining walls, and other structural elements to enhance your landscape.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">💧</span>
+                    <h3>Irrigation Systems</h3>
+                    <p>Efficient watering solutions to keep your landscape healthy and thriving year-round.</p>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">✂️</span>
+                    <h3>Garden Maintenance</h3>
+                    <p>Ongoing care and maintenance services to keep your landscape looking its absolute best.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <span>Professional Portrait Photo</span>
+                </div>
+                <div class="about-text">
+                    <h2>Meet Matt Butterworth</h2>
+                    <h3>Owner & Lead Designer</h3>
+                    <p>With years of experience transforming outdoor spaces across Melbourne, Matt Butterworth brings passion, expertise, and attention to detail to every project.</p>
+                    
+                    <div class="credentials">
+                        <div class="credential-item">
+                            <strong>Rating:</strong> 4.9★ from 36 Google reviews
+                        </div>
+                        <div class="credential-item">
+                            <strong>Award:</strong> 2021 Rising Star
+                        </div>
+                        <div class="credential-item">
+                            <strong>Specialties:</strong> Landscape Design & Pool Landscaping
+                        </div>
+                        <div class="credential-item">
+                            <strong>Service Area:</strong> Windsor, VIC & surrounding areas
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><section style="padding:60px 6%;background:white;" id="gallery"><div style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#16a34a;margin-bottom:12px;">Our work</div><h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,40px);font-weight:700;color:#0f1f3d;letter-spacing:-1px;margin-bottom:32px;">Recent projects</h2><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;"><div style="position:relative;overflow:hidden;border-radius:10px;aspect-ratio:4/3;background:#e5e2dc;"><img src="https://images.unsplash.com/photo-1761637823293-f96835ec5038?w=800&q=80&fit=crop&auto=format" alt="Project photo 1" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" crossorigin="anonymous"/><div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.6));padding:12px;color:white;font-size:12px;">📷 Replace with your own project photo</div></div><div style="position:relative;overflow:hidden;border-radius:10px;aspect-ratio:4/3;background:#e5e2dc;"><img src="https://images.unsplash.com/photo-1713371765638-8cf84d350b74?w=800&q=80&fit=crop&auto=format" alt="Project photo 2" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" crossorigin="anonymous"/><div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.6));padding:12px;color:white;font-size:12px;">📷 Replace with your own project photo</div></div><div style="position:relative;overflow:hidden;border-radius:10px;aspect-ratio:4/3;background:#e5e2dc;"><img src="https://images.unsplash.com/photo-1758414335865-17baa986b85b?w=800&q=80&fit=crop&auto=format" alt="Project photo 3" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" crossorigin="anonymous"/><div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.6));padding:12px;color:white;font-size:12px;">📷 Replace with your own project photo</div></div><div style="position:relative;overflow:hidden;border-radius:10px;aspect-ratio:4/3;background:#e5e2dc;"><img src="https://images.unsplash.com/photo-1734079692160-fcbe4be6ab96?w=800&q=80&fit=crop&auto=format" alt="Project photo 4" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy" crossorigin="anonymous"/><div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.6));padding:12px;color:white;font-size:12px;">📷 Replace with your own project photo</div></div></div><p style="margin-top:16px;font-size:13px;color:#9ca3af;text-align:center;">📷 These are placeholder photos — your real project photos will be used on the live site</p></section><section style="padding:60px 6%;background:#f5f0e8;text-align:center;" id="reviews"><div style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#16a34a;margin-bottom:12px;">What our clients say</div><div style="display:inline-flex;flex-direction:column;align-items:center;gap:8px;"><div style="font-size:36px;color:#f59e0b;letter-spacing:4px;">★★★★✦</div><div style="font-size:40px;font-weight:700;color:#0f1f3d;font-family:'Playfair Display',serif;letter-spacing:-1.5px;">4.9 / 5</div><div style="font-size:15px;color:#6b7280;">36 verified Google reviews</div><a href="https://www.google.com/search?q=Butterworth%20Landscapes&reviews" target="_blank" rel="noopener" style="margin-top:8px;background:#0f1f3d;color:white;padding:10px 24px;border-radius:6px;font-size:14px;font-weight:500;text-decoration:none;">Read all reviews on Google ★</a></div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:32px;text-align:left;"><div style="background:white;border-radius:10px;padding:20px;border:1px solid #e5e2dc;"><div style="color:#f59e0b;font-size:16px;letter-spacing:2px;margin-bottom:10px;">★★★★★</div><p style="font-size:14px;color:#4b5563;line-height:1.7;font-style:italic;margin-bottom:14px;">"Matt and his team did an amazing job in my backyard transformation. They coped extremely well in the small space, did high quality work with a friendly smile. They even managed to get my difficult neighbour onside! They are a pleasure to work with, being proactive with problem solving, providing excellent suggestions and completed on time and on budget."</p><div style="font-size:12px;color:#9ca3af;display:flex;align-items:center;gap:5px;"><span style="width:6px;height:6px;background:#16a34a;border-radius:50%;display:inline-block;"></span>Verified Google Review</div></div><div style="background:white;border-radius:10px;padding:20px;border:1px solid #e5e2dc;"><div style="color:#f59e0b;font-size:16px;letter-spacing:2px;margin-bottom:10px;">★★★★★</div><p style="font-size:14px;color:#4b5563;line-height:1.7;font-style:italic;margin-bottom:14px;">"Matt and his team did a fantastic job. We have a large block (1000sqm) and it needed the works…raised concrete terrace, pool paving, earthmoving, planting etc. They produced a stunning and professional result. Easy to deal with, on time and in budget. Very happy to recommend."</p><div style="font-size:12px;color:#9ca3af;display:flex;align-items:center;gap:5px;"><span style="width:6px;height:6px;background:#16a34a;border-radius:50%;display:inline-block;"></span>Verified Google Review</div></div><div style="background:white;border-radius:10px;padding:20px;border:1px solid #e5e2dc;"><div style="color:#f59e0b;font-size:16px;letter-spacing:2px;margin-bottom:10px;">★★★★★</div><p style="font-size:14px;color:#4b5563;line-height:1.7;font-style:italic;margin-bottom:14px;">"Working with Butterworth Landscapes was an absolute breeze from start to finish."</p><div style="font-size:12px;color:#9ca3af;display:flex;align-items:center;gap:5px;"><span style="width:6px;height:6px;background:#16a34a;border-radius:50%;display:inline-block;"></span>Verified Google Review</div></div></div></section><section style="padding:70px 6%;background:white;" id="contact"><div style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#16a34a;margin-bottom:12px;">Get in touch</div><h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);font-weight:700;color:#0f1f3d;letter-spacing:-1px;margin-bottom:40px;">Ready to get started?</h2><div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:1000px;"><div><a href="tel:0437240080" style="display:block;background:#0f1f3d;color:white;text-align:center;padding:18px;border-radius:8px;font-size:20px;font-weight:600;text-decoration:none;margin-bottom:16px;">📞 Contact for a quote: 0437240080</a><div style="display:flex;flex-direction:column;gap:16px;"><div style="display:flex;gap:12px;align-items:center;"><div style="width:40px;height:40px;background:#f0ede8;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">📞</div><div><div style="font-size:11px;text-transform:uppercase;color:#9ca3af;margin-bottom:2px;">Phone</div><a href="tel:0437240080" style="font-size:15px;font-weight:500;color:#166534;text-decoration:none;">0437240080</a></div></div><div style="display:flex;gap:12px;align-items:center;"><div style="width:40px;height:40px;background:#f0ede8;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">✉️</div><div><div style="font-size:11px;text-transform:uppercase;color:#9ca3af;margin-bottom:2px;">Email</div><a href="mailto:matt@butterworthlandscapes.com" style="font-size:15px;font-weight:500;color:#166534;text-decoration:none;">matt@butterworthlandscapes.com</a></div></div><div style="display:flex;gap:12px;align-items:center;"><div style="width:40px;height:40px;background:#f0ede8;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">📍</div><div><div style="font-size:11px;text-transform:uppercase;color:#9ca3af;margin-bottom:2px;">Address</div><div style="font-size:15px;font-weight:500;">390 High St, Windsor VIC 3181, Australia</div></div></div><div style="display:flex;gap:12px;align-items:center;"><div style="width:40px;height:40px;background:#f0ede8;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🕐</div><div><div style="font-size:11px;text-transform:uppercase;color:#9ca3af;margin-bottom:2px;">Hours</div><div style="font-size:15px;font-weight:500;">Mon–Fri 7am–5pm · Sat 8am–12pm</div></div></div></div></div><div><div style="background:#f8f7f4;border-radius:12px;height:220px;display:flex;align-items:center;justify-content:center;text-align:center;color:#9ca3af;font-size:14px;border:1px solid #e5e2dc;padding:20px;margin-bottom:16px;">📍 390 High St, Windsor VIC 3181, Australia<br><br><small>Interactive map on live site</small></div><div style="background:#0f1f3d;border-radius:12px;padding:24px;text-align:center;color:white;"><div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:10px;">Free on-site consultation — no obligation</div><a href="tel:0437240080" style="display:inline-block;background:white;color:#0f1f3d;padding:11px 28px;border-radius:6px;font-size:15px;font-weight:600;text-decoration:none;">📞 0437240080</a></div></div></div></section><footer style="background:#111;color:rgba(255,255,255,0.5);padding:24px 6%;text-align:center;font-size:13px;line-height:2;"><strong style="color:rgba(255,255,255,0.85);">Butterworth Landscapes</strong> · 390 High St, Windsor VIC 3181, Australia · <a href="tel:0437240080" style="color:rgba(255,255,255,0.5);text-decoration:none;">0437240080</a> · <a href="mailto:matt@butterworthlandscapes.com" style="color:rgba(255,255,255,0.5);text-decoration:none;">matt@butterworthlandscapes.com</a><br>© 2025 Butterworth Landscapes · Preview by <a href="https://getnoticed.net.au" style="color:rgba(255,255,255,0.35);text-decoration:none;">GetNoticed</a></footer></body></html>
