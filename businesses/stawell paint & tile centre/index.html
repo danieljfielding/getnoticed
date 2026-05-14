@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stawell Professional Tiling - Quality Tile Installation Services</title>
+    <meta name="description" content="Professional tiling services in Stawell VIC. Specializing in bathroom, kitchen, and commercial tile installations. Free quotes available.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #3498db;
+        }
+
+        main {
+            margin-top: 80px;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(52, 152, 219, 0.8), rgba(52, 152, 219, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f8f9fa" width="1200" height="600"/><rect fill="%23e9ecef" x="0" y="0" width="200" height="200"/><rect fill="%23dee2e6" x="200" y="0" width="200" height="200"/><rect fill="%23e9ecef" x="400" y="0" width="200" height="200"/><rect fill="%23dee2e6" x="600" y="0" width="200" height="200"/><rect fill="%23e9ecef" x="800" y="0" width="200" height="200"/><rect fill="%23dee2e6" x="1000" y="0" width="200" height="200"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #c0392b;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+            margin-left: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #3498db;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        .services {
+            background: #f8f9fa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: #3498db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            background: #ddd;
+            height: 400px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .contact {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1rem;
+            color: #3498db;
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        footer {
+            background: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Stawell Professional Tiling</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu">☰</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Professional Tiling Services in Stawell</h1>
+                    <p>Quality tile installation for residential and commercial properties across Stawell and surrounding areas</p>
+                    <a href="#contact" class="btn">Get Free Quote</a>
+                    <a href="#services" class="btn btn-secondary">Our Services</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section services">
+            <div class="container">
+                <h2 class="section-title">Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🏠</div>
+                        <h3>Bathroom Tiling</h3>
+                        <p>Complete bathroom renovations with waterproof tiling solutions. We specialize in modern designs and quality finishes that last.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🍳</div>
+                        <h3>Kitchen Tiling</h3>
+                        <p>Transform your kitchen with beautiful splashbacks and floor tiles. Heat and stain-resistant options available.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🏢</div>
+                        <h3>Commercial Tiling</h3>
+                        <p>Professional commercial tiling services for offices, retail spaces, and industrial facilities throughout Stawell.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🏡</div>
+                        <h3>Outdoor Tiling</h3>
+                        <p>Weather-resistant outdoor tiling for patios, pool areas, and garden spaces. Non-slip options available.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🔧</div>
+                        <h3>Tile Repairs</h3>
+                        <p>Professional tile repair and replacement services. We fix cracked, loose, or damaged tiles efficiently.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">✨</div>
+                        <h3>Tile Restoration</h3>
+                        <p>Bring old tiles back to life with our restoration services including cleaning, regrouting, and resealing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About Stawell Professional Tiling</h2>
+                <div class="about">
+                    <div class="about-text">
+                        <p>With over 15 years of experience serving Stawell and surrounding areas, we are your trusted local tiling specialists. Our team combines traditional craftsmanship with modern techniques to deliver exceptional results on every project.</p>
+                        
+                        <p>We pride ourselves on attention to detail, reliable service, and competitive pricing. Whether you're renovating a single bathroom or managing a large commercial project, we have the skills and experience to exceed your expectations.</p>
+                        
+                        <p>All our work is fully insured and comes with a comprehensive warranty. We use only premium quality materials and the latest installation techniques to ensure your tiles look great and last for years to come.</p>
+                        
+                        <ul style="margin-top: 1.5rem; padding-left: 2rem;">
+                            <li>✓ Fully licensed and insured</li>
+                            <li>✓ 15+ years experience</li>
+                            <li>✓ Free quotes and consultations</li>
+                            <li>✓ Warranty on all work</li>
+                            <li>✓ Local Stawell business</li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        Professional Tiling Work Showcase
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact">
+            <div class="container">
+                <h2 class="section-title" style="color: white;">Contact Us</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Get In Touch</h3>
+                        <p><strong>Phone:</strong> (03) 5358 0000</p>
+                        <p><strong>Mobile:</strong> 0412 345 678</p>
+                        <p><strong>Email:</strong> info@stawellprofessionaltiling.com.au</p>
+                        <p><strong>Address:</strong> Stawell VIC 3380</p>
+                        
+                        <h3 style="margin-top: 2rem;">Service Areas</h3>
+                        <p>We proudly serve Stawell and surrounding areas including:</p>
+                        <ul style="margin-top: 1rem; padding-left: 2rem;">
+                            <li>Ararat</li>
+                            <li>Halls Gap</li>
+                            <li>Avoca</li>
+                            <li>Pomonal</li>
+                            <li>Great Western</li>
+                        </ul>
+                        
+                        <h3 style="margin-top: 2rem;">Business Hours</h3>
+                        <p>Monday - Friday: 7:00 AM - 5:00 PM</p>
+                        <p>Saturday: 8:00 AM - 2:00 PM</p>
+                        <p>Sunday: Emergency repairs only</p>
+                    </div>
+                    
+                    <form class="contact-form">
+                        <h3>Request a Free Quote</h3>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Required</label>
+                            <select id="service" name="service" style="width: 100%; padding: 10px; border: none; border-radius: 5px;">
+                                <option>Bathroom Tiling</option>
+                                <option>Kitchen Tiling</option>
+                                <option>Commercial Tiling</option>
+                                <option>Outdoor Tiling</option>
+                                <option>Tile Repairs</option>
+                                
