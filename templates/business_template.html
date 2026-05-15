@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{BUSINESS_NAME}} — {{TRADE}} in {{SUBURB}}, {{STATE}}</title>
+  <meta name="description" content="{{META_DESCRIPTION}}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0f1f3d;
+      --navy2: #162a50;
+      --blue: #1e3a6e;
+      --green: #16a34a;
+      --green-light: #dcfce7;
+      --off: #f8f7f4;
+      --stone: #f0ede8;
+      --border: #e5e2dc;
+      --t1: #111827;
+      --t2: #4b5563;
+      --t3: #9ca3af;
+      --white: #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--t1); -webkit-font-smoothing: antialiased; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 6%; display: flex;
+      justify-content: space-between; align-items: center; height: 66px;
+    }
+    .nav-logo {
+      font-family: 'Fraunces', serif; font-size: 20px; font-weight: 700;
+      color: var(--navy); text-decoration: none; letter-spacing: -0.5px;
+    }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { font-size: 14px; color: var(--t2); text-decoration: none; font-weight: 500; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-phone {
+      background: var(--green); color: white !important;
+      padding: 9px 20px; border-radius: 6px; font-weight: 600 !important;
+      transition: background 0.2s;
+    }
+    .nav-phone:hover { background: #15803d !important; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; min-height: 88vh;
+      display: flex; align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('{{HERO_IMAGE_URL}}');
+      background-size: cover; background-position: center;
+      transform: scale(1.04);
+      transition: transform 8s ease-out;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        105deg,
+        rgba(10,20,45,0.88) 0%,
+        rgba(10,20,45,0.72) 50%,
+        rgba(10,20,45,0.45) 100%
+      );
+    }
+    .hero:hover .hero-bg { transform: scale(1.0); }
+    .hero-content {
+      position: relative; z-index: 1;
+      padding: 0 6%; max-width: 780px;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(22,163,74,0.18);
+      border: 1px solid rgba(22,163,74,0.4);
+      color: #4ade80; font-size: 13px; font-weight: 500;
+      padding: 5px 14px; border-radius: 20px;
+      margin-bottom: 28px; letter-spacing: 0.01em;
+    }
+    .hero-badge::before { content: '●'; font-size: 7px; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(42px, 6.5vw, 80px);
+      font-weight: 700; line-height: 1.05;
+      letter-spacing: -2.5px; color: white;
+      margin-bottom: 22px;
+    }
+    .hero h1 em { color: #4ade80; font-style: italic; }
+    .hero-sub {
+      font-size: 18px; color: rgba(255,255,255,0.72);
+      line-height: 1.65; max-width: 500px; margin-bottom: 36px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 52px; }
+    .btn-primary {
+      background: var(--green); color: white;
+      padding: 15px 32px; border-radius: 7px;
+      font-size: 15px; font-weight: 600;
+      text-decoration: none; transition: background 0.2s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn-primary:hover { background: #15803d; }
+    .btn-outline {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white; padding: 15px 32px; border-radius: 7px;
+      font-size: 15px; font-weight: 500; text-decoration: none;
+      transition: background 0.2s; font-family: 'DM Sans', sans-serif;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.2); }
+    .hero-stats {
+      display: flex; gap: 36px; flex-wrap: wrap;
+    }
+    .hero-stat { }
+    .hero-stat .num {
+      font-family: 'Fraunces', serif;
+      font-size: 32px; font-weight: 700;
+      color: white; letter-spacing: -1px; display: block;
+    }
+    .hero-stat .lbl {
+      font-size: 13px; color: rgba(255,255,255,0.5);
+    }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--navy);
+      padding: 18px 6%;
+      display: flex; gap: 32px; flex-wrap: wrap; align-items: center;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 9px;
+      font-size: 13px; color: rgba(255,255,255,0.65); font-weight: 500;
+    }
+    .trust-item svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .trust-sep { width: 1px; height: 20px; background: rgba(255,255,255,0.12); }
+
+    /* ── SECTIONS ── */
+    section { padding: 88px 6%; }
+    .eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--green); margin-bottom: 12px;
+    }
+    .section-h {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 700; letter-spacing: -1.5px;
+      line-height: 1.1; margin-bottom: 16px; color: var(--navy);
+    }
+    .section-sub {
+      font-size: 17px; color: var(--t2);
+      line-height: 1.65; max-width: 520px; margin-bottom: 52px;
+    }
+
+    /* ── SERVICES ── */
+    .services { background: var(--off); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .service-card {
+      background: white; border-radius: 14px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(15,31,61,0.1);
+    }
+    .service-img {
+      width: 100%; height: 200px;
+      object-fit: cover; display: block;
+      background: var(--stone);
+    }
+    .service-body { padding: 24px; }
+    .service-body h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 20px; font-weight: 600;
+      color: var(--navy); margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+    .service-body p { font-size: 14px; color: var(--t2); line-height: 1.65; }
+
+    /* ── ABOUT / SPLIT ── */
+    .about { background: white; }
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center;
+    }
+    .about-img-wrap { position: relative; }
+    .about-img {
+      width: 100%; aspect-ratio: 4/5;
+      object-fit: cover; border-radius: 16px;
+      display: block;
+    }
+    .about-badge {
+      position: absolute; bottom: -20px; right: -20px;
+      background: var(--navy); color: white;
+      border-radius: 12px; padding: 20px 24px;
+      text-align: center; min-width: 130px;
+      box-shadow: 0 8px 32px rgba(15,31,61,0.25);
+    }
+    .about-badge .big {
+      font-family: 'Fraunces', serif;
+      font-size: 38px; font-weight: 700;
+      display: block; color: #4ade80; letter-spacing: -1px;
+    }
+    .about-badge .sm { font-size: 12px; color: rgba(255,255,255,0.6); }
+    .about-content {}
+    .about-content p { font-size: 16px; color: var(--t2); line-height: 1.75; margin-bottom: 20px; }
+    .about-creds { display: flex; flex-direction: column; gap: 10px; margin-top: 32px; }
+    .cred {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--off); border-radius: 8px;
+      padding: 12px 16px; font-size: 14px; font-weight: 500; color: var(--t1);
+    }
+    .cred::before { content: '✓'; color: var(--green); font-weight: 700; font-size: 15px; flex-shrink: 0; }
+
+    /* ── REVIEWS ── */
+    .reviews { background: var(--off); }
+    .reviews-header {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; margin-bottom: 40px; flex-wrap: wrap; gap: 20px;
+    }
+    .reviews-score {
+      background: white; border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px 28px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .score-big {
+      font-family: 'Fraunces', serif;
+      font-size: 52px; font-weight: 700;
+      color: var(--navy); letter-spacing: -2px; line-height: 1;
+    }
+    .score-detail {}
+    .score-stars { color: #f59e0b; font-size: 20px; letter-spacing: 2px; }
+    .score-count { font-size: 13px; color: var(--t3); margin-top: 2px; }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .rv-card {
+      background: white; border-radius: 12px;
+      padding: 28px; border: 1px solid var(--border);
+    }
+    .rv-stars { color: #f59e0b; font-size: 15px; letter-spacing: 2px; margin-bottom: 14px; }
+    .rv-text {
+      font-size: 15px; color: var(--t2);
+      line-height: 1.7; font-style: italic; margin-bottom: 20px;
+    }
+    .rv-author { display: flex; align-items: center; gap: 12px; }
+    .rv-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--navy); color: white;
+      font-weight: 600; font-size: 14px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .rv-name { font-size: 14px; font-weight: 600; color: var(--t1); }
+    .rv-date { font-size: 12px; color: var(--t3); }
+
+    /* ── GALLERY ── */
+    .gallery { background: white; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 260px);
+      gap: 12px;
+    }
+    .gallery-item {
+      border-radius: 10px; overflow: hidden;
+      position: relative;
+    }
+    .gallery-item:first-child {
+      grid-column: span 2; grid-row: span 2;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform 0.4s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-item::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(15,31,61,0.3), transparent);
+      pointer-events: none;
+    }
+
+    /* ── CONTACT ── */
+    .contact { background: var(--navy); }
+    .contact-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: start;
+    }
+    .contact-info .section-h { color: white; }
+    .contact-info .section-sub { color: rgba(255,255,255,0.6); }
+    .contact-details { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+    .contact-row {
+      display: flex; align-items: center; gap: 14px;
+      color: rgba(255,255,255,0.75); font-size: 15px;
+    }
+    .contact-row svg { width: 18px; height: 18px; color: #4ade80; flex-shrink: 0; }
+    .contact-row a { color: inherit; text-decoration: none; }
+    .contact-row a:hover { color: white; }
+    .contact-form-card {
+      background: white; border-radius: 14px; padding: 36px 32px;
+    }
+    .contact-form-card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 22px; font-weight: 600; color: var(--navy);
+      margin-bottom: 24px; letter-spacing: -0.3px;
+    }
+    .field { margin-bottom: 16px; }
+    .field label {
+      display: block; font-size: 13px; font-weight: 600;
+      color: var(--t2); margin-bottom: 6px;
+    }
+    .field input, .field textarea, .field select {
+      width: 100%; padding: 11px 14px;
+      border: 1px solid var(--border); border-radius: 7px;
+      font-size: 14px; font-family: 'DM Sans', sans-serif;
+      color: var(--t1); background: white;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    .field textarea { height: 100px; resize: none; }
+    .field input:focus, .field textarea:focus, .field select:focus {
+      outline: none; border-color: var(--navy);
+    }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-btn {
+      width: 100%; background: var(--navy); color: white;
+      border: none; padding: 14px; border-radius: 7px;
+      font-size: 15px; font-weight: 600; cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: background 0.2s; margin-top: 4px;
+    }
+    .form-btn:hover { background: var(--blue); }
+    .form-note { font-size: 12px; color: var(--t3); text-align: center; margin-top: 10px; }
+
+    /* ── GETNOTICED BANNER ── */
+    .gn-banner {
+      background: var(--off); border-top: 1px solid var(--border);
+      padding: 16px 6%;
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px;
+    }
+    .gn-banner p { font-size: 13px; color: var(--t3); }
+    .gn-banner a {
+      font-family: 'Fraunces', serif; font-size: 14px;
+      font-weight: 700; color: var(--navy); text-decoration: none;
+    }
+    .gn-banner a span { color: var(--green); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      padding: 40px 6% 32px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-inner {
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 20px;
+    }
+    .footer-logo {
+      font-family: 'Fraunces', serif; font-size: 18px;
+      font-weight: 700; color: white; text-decoration: none;
+    }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; }
+    .footer-links a:hover { color: white; }
+    footer .copyright { font-size: 13px; color: rgba(255,255,255,0.3); width: 100%; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.07); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .about-inner { grid-template-columns: 1fr; gap: 40px; }
+      .about-img-wrap { display: none; }
+      .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .gallery-item:first-child { grid-column: span 2; grid-row: span 1; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hero h1 { letter-spacing: -1.5px; }
+      .hero-stats { gap: 24px; }
+      .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .gallery-item:first-child { grid-column: span 1; }
+      .field-row { grid-template-columns: 1fr; }
+      .trust-sep { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">{{BUSINESS_NAME}}</a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#reviews">Reviews</a>
+    <a href="tel:{{PHONE_RAW}}" class="nav-phone">📞 {{PHONE}}</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">{{TRADE}} · {{SUBURB}}, {{STATE}}</div>
+    <h1>{{HERO_HEADLINE}}</h1>
+    <p class="hero-sub">{{HERO_SUBHEADLINE}}</p>
+    <div class="hero-actions">
+      <a href="tel:{{PHONE_RAW}}" class="btn-primary">Call {{PHONE}}</a>
+      <a href="#contact" class="btn-outline">Get a free quote</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="num">{{RATING}}★</span>
+        <span class="lbl">Google rating</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num">{{REVIEW_COUNT}}+</span>
+        <span class="lbl">reviews</span>
+      </div>
+      <div class="hero-stat">
+        <span class="num">{{YEARS_ACTIVE}}+</span>
+        <span class="lbl">years in business</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+    {{TRUST_1}}
+  </div>
+  <div class="trust-sep"></div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+    {{TRUST_2}}
+  </div>
+  <div class="trust-sep"></div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+    {{TRUST_3}}
+  </div>
+  <div class="trust-sep"></div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+    {{TRUST_4}}
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="eyebrow">What we do</div>
+  <h2 class="section-h">{{SERVICES_HEADLINE}}</h2>
+  <p class="section-sub">{{SERVICES_SUB}}</p>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <img class="service-img" src="{{SERVICE_1_IMAGE_URL}}" alt="{{SERVICE_1_NAME}}" loading="lazy" />
+      <div class="service-body">
+        <h3>{{SERVICE_1_NAME}}</h3>
+        <p>{{SERVICE_1_DESC}}</p>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img class="service-img" src="{{SERVICE_2_IMAGE_URL}}" alt="{{SERVICE_2_NAME}}" loading="lazy" />
+      <div class="service-body">
+        <h3>{{SERVICE_2_NAME}}</h3>
+        <p>{{SERVICE_2_DESC}}</p>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <img class="service-img" src="{{SERVICE_3_IMAGE_URL}}" alt="{{SERVICE_3_NAME}}" loading="lazy" />
+      <div class="service-body">
+        <h3>{{SERVICE_3_NAME}}</h3>
+        <p>{{SERVICE_3_DESC}}</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-img-wrap">
+      <img class="about-img" src="{{ABOUT_IMAGE_URL}}" alt="{{BUSINESS_NAME}}" loading="lazy" />
+      <div class="about-badge">
+        <span class="big">{{YEARS_ACTIVE}}</span>
+        <span class="sm">Years of<br>experience</span>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="eyebrow">About us</div>
+      <h2 class="section-h">{{ABOUT_HEADLINE}}</h2>
+      <p>{{ABOUT_PARA_1}}</p>
+      <p>{{ABOUT_PARA_2}}</p>
+      <div class="about-creds">
+        <div class="cred">{{CRED_1}}</div>
+        <div class="cred">{{CRED_2}}</div>
+        <div class="cred">{{CRED_3}}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews-header">
+    <div>
+      <div class="eyebrow">What clients say</div>
+      <h2 class="section-h" style="margin-bottom:0">Trusted by locals across {{SUBURB}}.</h2>
+    </div>
+    <div class="reviews-score">
+      <div class="score-big">{{RATING}}</div>
+      <div class="score-detail">
+        <div class="score-stars">{{STARS_HTML}}</div>
+        <div class="score-count">{{REVIEW_COUNT}} Google reviews</div>
+      </div>
+    </div>
+  </div>
+  <div class="reviews-grid">
+
+    <div class="rv-card">
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"{{REVIEW_1_TEXT}}"</p>
+      <div class="rv-author">
+        <div class="rv-avatar">{{REVIEW_1_INITIAL}}</div>
+        <div>
+          <div class="rv-name">{{REVIEW_1_AUTHOR}}</div>
+          <div class="rv-date">{{REVIEW_1_DATE}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rv-card">
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"{{REVIEW_2_TEXT}}"</p>
+      <div class="rv-author">
+        <div class="rv-avatar">{{REVIEW_2_INITIAL}}</div>
+        <div>
+          <div class="rv-name">{{REVIEW_2_AUTHOR}}</div>
+          <div class="rv-date">{{REVIEW_2_DATE}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rv-card">
+      <div class="rv-stars">★★★★★</div>
+      <p class="rv-text">"{{REVIEW_3_TEXT}}"</p>
+      <div class="rv-author">
+        <div class="rv-avatar">{{REVIEW_3_INITIAL}}</div>
+        <div>
+          <div class="rv-name">{{REVIEW_3_AUTHOR}}</div>
+          <div class="rv-date">{{REVIEW_3_DATE}}</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="eyebrow">Our work</div>
+  <h2 class="section-h">{{GALLERY_HEADLINE}}</h2>
+  <p class="section-sub" style="margin-bottom:36px">{{GALLERY_SUB}}</p>
+  <div class="gallery-grid">
+    <div class="gallery-item"><img src="{{GALLERY_1_URL}}" alt="Work sample 1" loading="lazy" /></div>
+    <div class="gallery-item"><img src="{{GALLERY_2_URL}}" alt="Work sample 2" loading="lazy" /></div>
+    <div class="gallery-item"><img src="{{GALLERY_3_URL}}" alt="Work sample 3" loading="lazy" /></div>
+    <div class="gallery-item"><img src="{{GALLERY_4_URL}}" alt="Work sample 4" loading="lazy" /></div>
+    <div class="gallery-item"><img src="{{GALLERY_5_URL}}" alt="Work sample 5" loading="lazy" /></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="eyebrow">Get in touch</div>
+      <h2 class="section-h">Ready to get started?</h2>
+      <p class="section-sub">{{CONTACT_INTRO}}</p>
+      <div class="contact-details">
+        <div class="contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-.85a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17z"/></svg>
+          <a href="tel:{{PHONE_RAW}}">{{PHONE}}</a>
+        </div>
+        <div class="contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>
+        </div>
+        <div class="contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          {{ADDRESS}}
+        </div>
+      </div>
+    </div>
+    <div class="contact-form-card">
+      <h3>Get a free quote</h3>
+      <div class="field">
+        <label>Your name</label>
+        <input type="text" placeholder="Your name" id="cf-name" />
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Phone</label>
+          <input type="tel" placeholder="Phone number" id="cf-phone" />
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" placeholder="Email address" id="cf-email" />
+        </div>
+      </div>
+      <div class="field">
+        <label>Tell us about your project</label>
+        <textarea placeholder="What do you need done?" id="cf-msg"></textarea>
+      </div>
+      <button class="form-btn" onclick="submitEnquiry(event)">Send enquiry →</button>
+      <p class="form-note">We'll get back to you within 24 hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GETNOTICED BANNER -->
+<div class="gn-banner">
+  <p>Website by <a href="https://getnoticed.net.au">Get<span>Noticed</span></a> · Professional websites for local Australian businesses</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="#" class="footer-logo">{{BUSINESS_NAME}}</a>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <p class="copyright">© {{YEAR}} {{BUSINESS_NAME}} · {{SUBURB}}, {{STATE}} · All rights reserved</p>
+</footer>
+
+<script>
+  // Ken Burns effect on hero
+  document.querySelector('.hero-bg').style.transform = 'scale(1.0)';
+
+  // Enquiry form
+  async function submitEnquiry(e) {
+    const btn = e.target;
+    const name = document.getElementById('cf-name').value;
+    const phone = document.getElementById('cf-phone').value;
+    const email = document.getElementById('cf-email').value;
+    const msg = document.getElementById('cf-msg').value;
+    if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
+    btn.textContent = 'Sending…'; btn.disabled = true;
+    try {
+      const resp = await fetch('https://formspree.io/f/xkoyknop', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ name, phone, email, message: msg, business: '{{BUSINESS_NAME}}' })
+      });
+      if (resp.ok) {
+        btn.textContent = '✓ Sent! We\'ll be in touch soon.';
+        btn.style.background = '#166534';
+      } else { throw new Error(); }
+    } catch {
+      btn.textContent = 'Error — please call us directly';
+      btn.disabled = false;
+    }
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .rv-card, .cred').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
