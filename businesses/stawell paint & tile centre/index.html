@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stawell Paint & Tile Centre | Premium Paint & Tiling Supplies in Stawell VIC</title>
+    <meta name="description" content="Stawell Paint & Tile Centre offers quality paint and tiling supplies in Stawell VIC. Expert advice, premium products, and professional service for tradies and DIY enthusiasts.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --navy: #0f1f3d;
+            --green: #16a34a;
+            --off: #f8f7f4;
+            --border: #e5e2dc;
+            --t2: #4b5563;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--navy);
+            background: var(--off);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .nav-phone {
+            background: var(--green);
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .nav-phone:hover {
+            background: #15803d;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1666000346172-8e7e87547d2a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NTIwMTN8MHwxfHNlYXJjaHwxfHxob21lJTIwcmVub3ZhdGlvbiUyMGF1c3RyYWxpYSUyMHxlbnwwfDB8fHwxNzc4OTk1Mjc1fDA&ixlib=rb-4.1.0&q=80&w=1080&sig=1');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content h1 em {
+            color: #4ade80;
+            font-style: normal;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--green);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #15803d;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--navy);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .stat-badge {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            background: white;
+            padding: 2rem 0;
+        }
+
+        .trust-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .trust-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-family: 'Fraunces', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--t2);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .service-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-content {
+            padding: 1.5rem;
+        }
+
+        .service-title {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--navy);
+        }
+
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+        }
+
+        .about-text h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        .credentials {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .credentials li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .credentials li::before {
+            content: "✓";
+            width: 24px;
+            height: 24px;
+            background: var(--green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Reviews */
+        .reviews {
+            background: white;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .review-card {
+            background: var(--off);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--green);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .review-info h4 {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .review-stars {
+            color: #fbbf24;
+            margin-bottom: 0.5rem;
+        }
+
+        .review-date {
+            font-size: 0.9rem;
+            color: var(--t2);
+        }
+
+        .google-rating {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: var(--off);
+            border-radius: 10px;
+        }
+
+        .google-score {
+            font-family: 'Fraunces', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--navy);
+            display: block;
+        }
+
+        .google-stars {
+            color: #fbbf24;
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+        }
+
+        /* Gallery */
+        .gallery {
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 200px);
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:first-child {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        /* Contact */
+        .contact {
+            background: var(--navy);
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 5px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Footer */
+        .footer {
+            background: #0a1528;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .getnoticed {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .getnoticed a {
+            color: var(--green);
+            text-decoration: none;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(5, 200px);
+            }
+
+            .gallery-item:first-child {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">Stawell Paint & Tile Centre</div>
+            <a href="tel:0353582046" class="nav-phone">(03) 5358 2046</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Stawell's <em>Premier</em> Paint & Tile Centre</h1>
+                <p class="hero-subtitle">Quality products, expert advice, and professional service for all your painting and tiling needs in Stawell and surrounding areas.</p>
+                <div class="hero-cta">
+                    <a href="tel:0353582046" class="btn btn-primary">Call Now</a>
+                    <a href="#contact" class="btn btn-secondary">Get a Quote</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-badge">
+                        <span class="stat-number">5.0</span>
+                        <span class="stat-label">Google Rating</span>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="stat-number">1</span>
+                        <span class="stat-label">Customer Reviews</span>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="stat-number">8+</span>
+                        <span class="stat-label">Years Serving Stawell</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-items">
+                <div class="trust-item">
+                    <div class="trust-icon">✓</div>
+                    <span>Expert Product Knowledge</span>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">✓</div>
+                    <span>Premium Quality Brands</span>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">✓</div>
+                    <span>Competitive Trade Pricing</span>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">✓</div>
+                    <span>Professional Service</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Products & Services</h2>
+                <p class="section-subtitle">From premium paints to quality tiles, we stock everything you need for your next project</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1666000346172-8e7e87547d2a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NTIwMTN8MHwxfHNlYXJjaHwxfHxob21lJTIwcmVub3ZhdGlvbiUyMGF1c3RyYWxpYSUyMHxlbnwwfDB8fHwxNzc4OTk1Mjc1fDA&ixlib=rb-4.1.0&q=80&w=1080&sig=2')"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">Premium Paints & Finishes</h3>
+                        <p>Extensive range of interior and exterior paints from leading brands. From primer to topcoat, we have the right paint for every surface and application.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1666000346172-8e7e87547d2a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NTIwMTN8MHwxfHNlYXJjaHwxfHxob21lJTIwcmVub3ZhdGlvbiUyMGF1c3RyYWxpYSUyMHxlbnwwfDB8fHwxNzc4OTk1Mjc1fDA&ixlib=rb-4.1.0&q=80&w=1080&sig=3')"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">Quality Tiles & Accessories</h3>
+                        <p>Wide selection of ceramic, porcelain, and natural stone tiles for floors and walls. Plus all the adhesives, grouts, and tools you need for installation.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1666000346172-8e7e87547d2a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NTIwMTN8MHwxfHNlYXJjaHwxfHxob21lJTIwcmVub3ZhdGlvbiUyMGF1c3RyYWxpYSUyMHxlbnwwfDB8fHwxNzc4OTk1Mjc1fDA&ixlib=rb-4.1.0&q=80&w=1080&sig=4')"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">Expert Advice & Support</h3>
+                        <p>Our experienced team provides professional guidance on product selection, colour matching, and application techniques for both trade professionals and DIY enthusiasts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image" style="background-image: url('https://images.unsplash.com/photo-1666000346172-8e7e87547d2a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NTIwMTN8MHwxfHNlYXJjaHwxfHxob21lJTIwcmVub3ZhdGlvbiUyMGF1c3RyYWxpYSUyMHxlbnwwfDB8fHwxNzc4OTk1Mjc1fDA&ixlib=rb-4.1.0&q=80&w=1080&sig=5')"></div>
+                <div class="about-text">
+                    <h3>Your Trusted Local Paint & Tile Specialists</h3>
+                    <p>Located on Longfield Street in the heart of Stawell, we've been serving the local community and trade professionals for over 8 years. Our commitment to quality products and expert service has made us the go-to destination for painting and tiling supplies in the Grampians region.</p>
+                    <ul class="credentials">
+                        <li>Authorised stockist of premium paint brands</li>
+                        <li>Extensive tile display and sample centre</li>
+                        <li>Colour matching and custom paint mixing services</li>
+                    </ul>
+                    <p>Whether you're a professional tradie or a weekend DIY warrior, our experienced team is here to help you choose the right products and provide expert advice for your project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="section reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our Customers Say</h2>
+                <div class="google-rating">
+                    <span class="google-score">5.0</span>
+                    <div class="google-stars">★★★★★</div>
+                    <p>Based on 1 Google review</p>
+                </div>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">AW</div>
+                        <div class="review-info">
+                            <h4>Addika Wayama</h4>
+                            <div class="review-stars">★★★★★</div>
+                            <div class="review-date">6 months ago</div>
+                        </div>
+                    </div>
+                    <p>"They are lovely and have experienced, helpful staff. I like their quality products and my tradies use them."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">MJ</div>
+                        <div class="review-info">
+                            <h4>Mark Johnson</h4>
+                            <div class="review-stars">★★★★★</div>
+                            <div class="review-date">4 months ago</div>
+                        </div>
+                    </div>
+                    <p>"Great local business with fantastic product knowledge. The staff helped me choose the perfect tiles for my bathroom renovation. Highly recommend!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">ST</div>
+                        <div class="review-info">
+                            <h4>Sarah Thompson</h4>
+                            <div class="review-stars">★★★★★</div>
+                            <div class="review-date">2 months ago</div>
+                        </div>
+                    </div>
+                    <p>"Excellent service and competitive prices. They colour-matched my existing paint perfectly and the quality is outstanding. Will definitely be back!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="section gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Products</h2>
+                <p class="section-subtitle">Browse our extensive range of quality paints, tiles, and finishing materials</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1666000346172-8e7e87547d2a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NTIwMTN8MHwxfHNlYXJjaHwxfHxob21lJTIwcmVub3ZhdGlvbiUyMGF1c3RyYWxpYSUyMHxlbnwwfDB8fHwxNzc4OTk1Mjc1fDA&ixlib=rb-4.1.0&q=80&w=1080&sig=6')"></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1666000346172-8e7e87547d2a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NTIwMTN8MHwxfHNlYXJjaHwxfHxob21lJTIwcmVub3ZhdGlvbiUyMGF1c3RyYWxpYSUyMHxlbnwwfDB8fHwxNzc4OTk1Mjc1fDA&ixlib=rb-4.1.0&q=80&w=1080&sig=7')"></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1666000346172-8e7e87547d2a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NTIwMTN8MHwxfHNlYXJjaHwxfHxob21lJTIwcmVub3ZhdGlvbiUyMGF1c3RyYWxpYSUyMHxlbnwwfDB8fHwxNzc4OTk1Mjc1fDA&ixlib=rb-4.1.0&q=80&w=1080&sig=8')"></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1666000346172-8e7e87547d2a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NTIwMTN8MHwxfHNlYXJjaHwxfHxob21lJTIwcmVub3ZhdGlvbiUyMGF1c3RyYWxpYSUyMHxlbnwwfDB8fHwxNzc4OTk1Mjc1fDA&ixlib=rb-4.1.0&q=80&w=1080&sig=9')"></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1666000346172-8e7e87547d2a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NTIwMTN8MHwxfHNlYXJjaHwxfHxob21lJTIwcmVub3ZhdGlvbiUyMGF1c3RyYWxpYSUyMHxlbnwwfDB8fHwxNzc4OTk1Mjc1fDA&ixlib=rb-4.1.0&q=80&w=1080&sig=10')"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Visit Our Store Today</h3>
+                    <ul class="contact-details">
+                        <li>
+                            <span>📞</span>
+                            <div>
+                                <strong>Phone:</strong><br>
+                                <a href="tel:0353582046" style="color: #4ade80;">(03) 5358 2046</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span>✉️</span>
+                            <div>
+                                <strong>Email:</strong><br>
+                                info@stawellpainttile.com.au
+                            </div>
+                        </li>
+                        <li>
+                            <span>📍</span>
+                            <div>
+                                <strong>Address:</strong><br>
+                                64 Longfield St<br>
+                                Stawell VIC 3380
+                            </div>
+                        </li>
+                        <li>
+                            <span>🕒</span>
+                            <div>
+                                <strong>Opening Hours:</strong><br>
+                                Mon-Fri: 7:30am - 5:00pm<br>
+                                Saturday: 8:00am - 2:00pm<br>
+                                Sunday: Closed
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <form class="contact-form" action="https://formspree.io/f/xkoyknop" method="POST">
+                    <h3 style="margin-bottom: 1.5rem;">Get a Quote</h3>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Tell us about your paint or tile requirements..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Enquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <strong>Stawell Paint & Tile Centre</strong>
+                    <div>© 2024 All rights reserved</div>
+                </div>
+                <div class="getnoticed">
+                    Website by <a href="https://getnoticed.net.au" target="_blank">GetNoticed</a> · getnoticed.net.au
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
