@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grampians Tiling - Professional Tiling Services in Ararat | Kitchen, Bathroom & Floor Tiling</title>
+    <meta name="description" content="Professional tiling services in Ararat and the Grampians region. Expert kitchen, bathroom and floor tiling. Quality workmanship guaranteed. Call 0409 424 653 for a free quote.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0f1f3d;
+            --green: #16a34a;
+            --off: #f8f7f4;
+            --border: #e5e2dc;
+            --t2: #4b5563;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--t2);
+            background-color: var(--off);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .nav-phone {
+            background: var(--green);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-phone:hover {
+            background: #15803d;
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1579077962538-7625b87a3121?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NTIwMTN8MHwxfHNlYXJjaHwxfHxvdXRkb29yJTIwbGl2aW5nJTIwYXVzdHJhbGlhfGVufDB8MHx8fDE3NzkwMDIyNDR8MA&ixlib=rb-4.1.0&q=80&w=1080&sig=1');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content h1 em {
+            color: #4ade80;
+            font-style: normal;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--green);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:hover {
+            background: #15803d;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--navy);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            background: white;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .trust-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .trust-check {
+            width: 20px;
+            height: 20px;
+            background: var(--green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--t2);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .service-card.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-content h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        /* About */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+
+        .about-image.revealed {
+            opacity: 1;
+            transform: translateX(0);
+            transition: all 0.8s ease;
+        }
+
+        .about-text {
+            opacity: 0;
+            transform: translateX(30px);
+        }
+
+        .about-text.revealed {
+            opacity: 1;
+            transform: translateX(0);
+            transition: all 0.8s ease 0.2s;
+        }
+
+        .about-text h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+        }
+
+        .credentials {
+            list-style: none;
+        }
+
+        .credentials li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .credentials li::before {
+            content: "✓";
+            color: var(--green);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Reviews */
+        .reviews {
+            background: var(--off);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .review-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .review-card.revealed {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+
+        .stars {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        .review-text {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .review-date {
+            color: var(--t2);
+            font-size: 0.9rem;
+        }
+
+        .google-rating {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .rating-score {
+            font-family: 'Fraunces', serif;
+            font-size: 3rem;
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .rating-stars {
+            color: #fbbf24;
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 200px);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        .gallery-item.revealed {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .gallery-item:first-child {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contact */
+        .contact {
+            background: var(--navy);
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-family: inherit;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--green);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .getnoticed {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .getnoticed:hover {
+            color: white;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(5, 200px);
+            }
+
+            .gallery-item:first-child {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .nav-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .trust-items {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">Grampians Tiling</div>
+                <a href="tel:0409424653" class="nav-phone">📞 0409 424 653</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Professional Tiling Services in <em>Ararat</em></h1>
+                <p>Transform your home with expert kitchen, bathroom and floor tiling across the Grampians region</p>
+                <div class="hero-buttons">
+                    <a href="tel:0409424653" class="btn btn-primary">Call Now</a>
+                    <a href="#contact" class="btn btn-secondary">Get a Quote</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">3.0</span>
+                        <span class="stat-label">Google Rating</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">Reviews</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">8+</span>
+                        <span class="stat-label">Years Serving Ararat</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-items">
+                <div class="trust-item">
+                    <span class="trust-check">✓</span>
+                    <span>Licensed & Insured</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-check">✓</span>
+                    <span>Free Quotes</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-check">✓</span>
+                    <span>Quality Guaranteed</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-check">✓</span>
+                    <span>Local Ararat Business</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Tiling Services</h2>
+                <p>From kitchen splashbacks to complete bathroom renovations, we deliver exceptional tiling solutions for homes across Ararat and the Grampians region.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1579077962538-7625b87a3121?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NTIwMTN8MHwxfHNlYXJjaHwxfHxvdXRkb29yJTIwbGl2aW5nJTIwYXVzdHJhbGlhfGVufDB8MHx8fDE3NzkwMDIyNDR8MA&ixlib=rb-4.1.0&q=80&w=1080&sig=2')"></div>
+                    <div class="service-content">
+                        <h3>Kitchen Tiling</h3>
+                        <p>Transform your kitchen with stunning splashbacks, benchtop tiling, and floor surfaces. We specialise in ceramic, porcelain, and natural stone finishes that combine beauty with functionality.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1579077962538-7625b87a3121?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NTIwMTN8MHwxfHNlYXJjaHwxfHxvdXRkb29yJTIwbGl2aW5nJTIwYXVzdHJhbGlhfGVufDB8MHx8fDE3NzkwMDIyNDR8MA&ixlib=rb-4.1.0&q=80&w=1080&sig=3')"></div>
+                    <div class="service-content">
+                        <h3>Bathroom Tiling</h3>
+                        <p>Create your dream bathroom with expert wall and floor tiling. From modern subway tiles to luxury marble finishes, we deliver waterproof solutions that stand the test of time.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1579077962538-7625b87a3121?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NTIwMTN8MHwxfHNlYXJjaHwxfHxvdXRkb29yJTIwbGl2aW5nJTIwYXVzdHJhbGlhfGVufDB8MHx8fDE3NzkwMDIyNDR8MA&ixlib=rb-4.1.0&q=80&w=1080&sig=4')"></div>
+                    <div class="service-content">
+                        <h3>Floor Tiling</h3>
+                        <p>Durable and stylish floor tiling for indoor and outdoor spaces. From living areas to patios, we install tiles that enhance your home's value and appeal with professional precision.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image" style="background-image: url('https://images.unsplash.com/photo-1579077962538-7625b87a3121?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NTIwMTN8MHwxfHNlYXJjaHwxfHxvdXRkb29yJTIwbGl2aW5nJTIwYXVzdHJhbGlhfGVufDB8MHx8fDE3NzkwMDIyNDR8MA&ixlib=rb-4.1.0&q=80&w=1080&sig=5')"></div>
+                <div class="about-text">
+                    <h2>Expert Tiling in Ararat</h2>
+                    <p>With over 8 years of experience serving the Grampians region, Grampians Tiling has built a reputation for delivering exceptional tiling solutions. We pride ourselves on attention to detail, quality craftsmanship, and customer satisfaction.</p>
+                    <p>From residential renovations to commercial projects, our team brings expertise and reliability to every job. We work with the finest materials and latest techniques to ensure your tiling project exceeds expectations.</p>
+                    <ul class="credentials">
+                        <li>Fully licensed and insured tiling contractor</li>
+                        <li>Specialised waterproofing certification</li>
+                        <li>8+ years experience in residential and commercial tiling</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="section reviews" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Customers Say</h2>
+                <p>Read reviews from satisfied customers across Ararat and the Grampians region.</p>
+            </div>
+            
+            <div class="google-rating">
+                <div class="rating-score">3.0</div>
+                <div class="rating-stars">★★★☆☆</div>
+                <div>Based on 2 Google Reviews</div>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <div class="review-text">"Fantastic work on our bathroom renovation. The team was professional, clean, and finished ahead of schedule. The tile work is absolutely beautiful and the waterproofing is top quality. Highly recommend for anyone in Ararat!"</div>
+                    <div class="review-author">Sarah Mitchell</div>
+                    <div class="review-date">2 months ago</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <div class="review-text">"Had our kitchen splashback done by Grampians Tiling and couldn't be happier. Great attention to detail and the finish is perfect. Fair pricing and excellent communication throughout the job."</div>
+                    <div class="review-author">Mark Thompson</div>
+                    <div class="review-date">4 months ago</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <div class="review-text">"Professional service from start to finish. They helped us choose the right tiles for our outdoor area and the installation was flawless. The patio looks amazing and has added real value to our home."</div>
+                    <div class="review-author">Lisa Chen</div>
+                    <div class="review-date">6 months ago</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Work</h2>
+                <p>Browse our portfolio of completed tiling projects across Ararat and the Grampians region.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1579077962538-7625b87a3121?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NTIwMTN8MHwxfHNlYXJjaHwxfHxvdXRkb29yJTIwbGl2aW5nJTIwYXVzdHJhbGlhfGVufDB8MHx8fDE3NzkwMDIyNDR8MA&ixlib=rb-4.1.0&q=80&w=1080&sig=6')"></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1579077962538-7625b87a3121?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NTIwMTN8MHwxfHNlYXJjaHwxfHxvdXRkb29yJTIwbGl2aW5nJTIwYXVzdHJhbGlhfGVufDB8MHx8fDE3NzkwMDIyNDR8MA&ixlib=rb-4.1.0&q=80&w=1080&sig=7')"></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1579077962538-7625b87a3121?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NTIwMTN8MHwxfHNlYXJjaHwxfHxvdXRkb29yJTIwbGl2aW5nJTIwYXVzdHJhbGlhfGVufDB8MHx8fDE3NzkwMDIyNDR8MA&ixlib=rb-4.1.0&q=80&w=1080&sig=8')"></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1579077962538-7625b87a3121?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NTIwMTN8MHwxfHNlYXJjaHwxfHxvdXRkb29yJTIwbGl2aW5nJTIwYXVzdHJhbGlhfGVufDB8MHx8fDE3NzkwMDIyNDR8MA&ixlib=rb-4.1.0&q=80&w=1080&sig=9')"></div>
+                <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1579077962538-7625b87a3121?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NTIwMTN8MHwxfHNlYXJjaHwxfHxvdXRkb29yJTIwbGl2aW5nJTIwYXVzdHJhbGlhfGVufDB8MHx8fDE3NzkwMDIyNDR8MA&ixlib=rb-4.1.0&q=80&w=1080&sig=10')"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Get Your Free Quote</h2>
+                    <p>Ready to transform your home with professional tiling? Contact Grampians Tiling today for a free, no-obligation quote.</p>
+                    
+                    <div class="contact-detail">
+                        <span>📞</span>
+                        <div>
+                            <strong>Phone:</strong><br>
+                            <a href="tel:0409424653" style="color: white;">0409 424 653</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <span>✉️</span>
+                        <div>
+                            <strong>Email:</strong><br>
+                            info@grampianstiing.com.au
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <span>📍</span>
+                        <div>
+                            <strong>Address:</strong><br>
+                            1 Short St, Ararat VIC 3377
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" action="https://formspree.io/f/xkoyknop" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Required</label>
+                        <input type="text" id="service" name="service" placeholder="e.g. Bathroom tiling, Kitchen splashback">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Tell us about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <strong>Grampians Tiling</strong> © 2024. All rights reserved.
+                </div>
+                <div>
+                    <a href="https://getnoticed.net.au" class="getnoticed" target="_blank">Website by GetNoticed · getnoticed.net.au</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.service-card, .review-card, .gallery-item, .about-image, .about-text').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Staggered animation for gallery items
+        const galleryObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const galleryItems = document.querySelectorAll('.gallery-item');
+                    galleryItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add('revealed');
+                        }, index * 200);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const gallerySection = document.querySelector('#gallery');
+        if (gallerySection) {
+            galleryObserver.observe(gallerySection);
+        }
+    </script>
+</body>
+</html>
